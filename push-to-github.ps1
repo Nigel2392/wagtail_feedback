@@ -32,6 +32,7 @@ Function _NextVersionString {
     
     # validate integers
     if (-not (IsNumeric $major) -or -not (IsNumeric $minor) -or -not (IsNumeric $patch)) {
+        Write-Host "Invalid version format"
         throw "Invalid version format"
     }
 
