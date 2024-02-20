@@ -71,7 +71,7 @@ function InitRepo {
     git init
     git add .
     git branch -M main
-    git remote set-url origin "ssh@github.com:nigel2392/$(ProjectName).git"
+    git remote set-url origin "ssh@github.com:nigel2392/${ProjectName}.git"
     $newVersion = PYPI_NextVersion -ConfigFile $ConfigFile
     Write-Host "Next version (pypi): $newVersion"
     return $newVersion
