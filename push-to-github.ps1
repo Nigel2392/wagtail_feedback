@@ -2,7 +2,7 @@ $ProjectName = "wagtail_feedback"
 
 
 
-function Is-Numeric ($Value) {
+function IsNumeric ($Value) {
     return $Value -match "^[\d\.]+$"
 }
 
@@ -16,7 +16,7 @@ Function GITHUB_Upload {
     $gitVersion = "v${newVersion}"
     git tag $gitVersion
     git commit -m $CommitMessage
-    git push -u main --tags
+    git push -u origin main --tags
 }
 
 Function _NextVersionString {
@@ -31,7 +31,7 @@ Function _NextVersionString {
     $patch = [int]$versionParts[2] + 1
     
     # validate integers
-    if (-not (Is-Numeric $major) -or -not (Is-Numeric $minor) -or -not (Is-Numeric $patch)) {
+    if (-not (IsNumeric $major) -or -not (IsNumeric $minor) -or -not (IsNumeric $patch)) {
         throw "Invalid version format"
     }
 
@@ -71,7 +71,7 @@ function InitRepo {
     git init
     git add .
     git branch -M main
-    git remote add origin "https://github.com/nigel2392/$(ProjectName).git"
+    git remote set-url origin "ssh@github.com:nigel2392/$(ProjectName).git"
     $newVersion = PYPI_NextVersion -ConfigFile $ConfigFile
     Write-Host "Next version (pypi): $newVersion"
     return $newVersion
