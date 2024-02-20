@@ -1,6 +1,8 @@
 $ProjectName = "wagtail_feedback"
 
-
+param (
+    [string]$CommitMessage = "Update to package"
+)
 
 function IsNumeric ($Value) {
     return $Value -match "^[\d\.]+$"
@@ -106,8 +108,6 @@ Function GITHUB_UpdateVersion {
 
     $newVersion = GITHUB_NextVersion -ConfigFile $ConfigFile
 
-    Write-Host "Next version after Change: $newVersion"
-
     # First update the init file so that in case something goes wrong 
     # the version doesn't persist in the config file
     if (Test-Path $PyVersionFile) {
@@ -163,12 +163,11 @@ Function PYPI_Upload {
 }
 
 
-$version = GITHUB_NextVersion      # Increment the package version  (setup.cfg)
-Write-Host "Next version: $version"
-GITHUB_Upload -Version $version    # Upload the package             (twine upload dist/<LATEST>)
-PYPI_Build                         # Build the package              (python setup.py sdist)
-PYPI_Check -Version $version       # Check the package              (twine check dist/<LATEST>)
-PYPI_Upload -Version $version      # Upload the package             (twine upload dist/<LATEST>)
+$version = GITHUB_UpdateVersion                            # Increment the package version  (setup.cfg)
+GITHUB_Upload -Version $version                            # Upload the package             (twine upload dist/<LATEST>)
+PYPI_Build                                                 # Build the package              (python setup.py sdist)
+PYPI_Check -Version $version -CommitMessage $CommitMessage # Check the package              (twine check dist/<LATEST>)
+PYPI_Upload -Version $version                              # Upload the package             (twine upload dist/<LATEST>)
 
 
 
