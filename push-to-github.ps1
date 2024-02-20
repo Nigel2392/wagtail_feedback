@@ -94,6 +94,7 @@ function GITHUB_NextVersion {
         return $newVersion
     } else {
         $newVersion = InitRepo -ConfigFile $ConfigFile
+        Write-Host "Next version (init): $newVersion"
         return $newVersion
     }
 }
