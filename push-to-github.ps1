@@ -97,6 +97,8 @@ function GITHUB_NextVersion {
         $newVersion = InitRepo -ConfigFile $ConfigFile
     }
 
+    Write-Host "Next version (git): $newVersion"
+
     return $newVersion
 }
 
@@ -107,8 +109,6 @@ Function GITHUB_UpdateVersion {
     )
 
     $newVersion = GITHUB_NextVersion -ConfigFile $ConfigFile
-
-    Write-Host "Updating version to $newVersion"
 
     # First update the init file so that in case something goes wrong 
     # the version doesn't persist in the config file
