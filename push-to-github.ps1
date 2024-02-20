@@ -83,22 +83,16 @@ function GITHUB_NextVersion {
 
 
     # Extract the version, increment it, and prepare the updated version string
-    try {
-        $version = "$(git tag -l --format='VERSION=%(refname:short)' | Sort-Object -Descending | Select-Object -First 1)" -split "=v", 2 | ForEach-Object { $_.Trim() } | Select-Object -Last 1
+    $version = "$(git tag -l --format='VERSION=%(refname:short)' | Sort-Object -Descending | Select-Object -First 1)" -split "=v", 2 | ForEach-Object { $_.Trim() } | Select-Object -Last 1
 
-        if ($version) {
-            $newVersion = _NextVersionString -Version $version
-            Write-Host "Next version (git): $newVersion"
-            return $newVersion
-        } else {
-            $newVersion = InitRepo -ConfigFile $ConfigFile
-            return $newVersion
-        }
-    } catch {
+    if ($version) {
+        $newVersion = _NextVersionString -Version $version
+        Write-Host "Next version (git): $newVersion"
+        return $newVersion
+    } else {
         $newVersion = InitRepo -ConfigFile $ConfigFile
         return $newVersion
     }
-
 }
 
 Function GITHUB_UpdateVersion {
