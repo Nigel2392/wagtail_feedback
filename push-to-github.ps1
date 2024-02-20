@@ -72,7 +72,7 @@ function InitRepo {
     git init | Out-Host
     git add . | Out-Host
     git branch -M main | Out-Host
-    git remote set-url origin "ssh@github.com:Nigel2392/${ProjectName}" | Out-Host
+    git remote set-url origin "git@github.com:Nigel2392/${ProjectName}" | Out-Host
     $version = PYPI_NextVersion -ConfigFile $ConfigFile
     Write-Host "Initial version: $version"
     return $version
