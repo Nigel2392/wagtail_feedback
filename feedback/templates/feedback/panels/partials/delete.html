@@ -1,0 +1,23 @@
+{% load i18n %}
+
+<div class="feedback-panel-list-item" id="feedback-{{ feedback.id }}">
+        <div class="feedback-delete-heading">
+            <h3>{% translate "Delete this feedback?" %}</h3>
+        </div>
+
+        <div class="feedback-delete-content">
+            <p>{% translate "Once you delete this object, there is no going back." %}</p>
+        </div>
+
+        <div class="feedback-delete-form">
+            {% url "feedback_api_detail" feedback.id as detail_url %}
+            {% url "feedback_api_delete" feedback.id as delete_url %}
+            <form action="{{ delete_url }}" method="post" hx-post="{{ delete_url }}" hx-target="#feedback-{{ feedback.id }}" hx-swap="outerHTML" hx-trigger="submit">
+                {% csrf_token %}
+                <input class="button button-small" type="submit" value="{% translate "Yes, I'm sure" %}"/>
+                <a class="button button-small button-secondary" href="{{ detail_url }}" hx-get="{{ detail_url }}" hx-target="#feedback-{{ feedback.id }}" hx-swap="outerHTML" hx-trigger="click">
+                    {% translate "Cancel" %}
+                </a>
+            </form>
+        </div>
+</div>

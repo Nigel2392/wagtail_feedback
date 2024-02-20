@@ -1,0 +1,3 @@
+{% extends "./partials/wrapper.html" %}
+
+{% block wrapper_attributes %}hx-get="{{ chart_url }}" hx-trigger="load" hx-target="#{{ panel_id }}" hx-swap="outerHTML"{% endblock %}

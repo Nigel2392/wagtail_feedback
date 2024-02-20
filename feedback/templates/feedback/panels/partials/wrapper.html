@@ -1,0 +1,14 @@
+{% load i18n %}
+<div class="feedback-admin-wrapper" id="{{panel_id}}" {% block wrapper_attributes %}{% endblock %}>
+    <div class="feedback-admin-header">
+        {% block header %}
+            <a href="{{chart_url}}" hx-get="{{chart_url}}" hx-trigger="click" hx-target="#{{panel_id}}" hx-swap="outerHTML">
+                {% translate "Analytics" %}
+            </a>
+            <a href="{{list_url}}" hx-get="{{list_url}}" hx-trigger="click" hx-target="#{{panel_id}}" hx-swap="outerHTML">
+                {% translate "List" %}
+            </a>
+        {% endblock %}
+    </div>
+    {% block wrapped %}{% endblock %}
+</div>

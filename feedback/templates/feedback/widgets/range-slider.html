@@ -1,0 +1,9 @@
+<div class="form-group numeric-slider" {% include "django/forms/widgets/attrs.html" %}>
+    <div class="numeric-slider-range ui-slider ui-slider-horizontal ui-slider-range"></div>
+    <span class="numeric-slider-range_text" id='{{ widget.attrs.id }}_text'>
+        {{ widget.value_text }}
+    </span>
+    {% for widget in widget.subwidgets %}
+        {% include widget.template_name %}
+    {% endfor %}
+</div>

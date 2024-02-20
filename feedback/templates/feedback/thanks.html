@@ -1,0 +1,7 @@
+{% extends "./wrapper.html" %}
+
+{% load i18n %}
+{% block wrapped %}
+    {% translate "Thanks for your feedback! We appreciate your message." as feedback_thanks %}
+    <p>{{ page.get_feedback_thanks|default:feedback_thanks }}</p>
+{% endblock %}

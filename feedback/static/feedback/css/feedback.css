@@ -1,0 +1,320 @@
+:root {
+    --w-color-positive-150-lightness: 49%;
+    --w-color-positive-150: hsl(var(--w-color-positive-100-hue) var(--w-color-positive-100-saturation) var(--w-color-positive-150-lightness));
+
+}
+.feedback {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 6em;
+    gap: 1em;
+}
+.feedback .feedback-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;  
+    gap: 1em;
+}
+
+/* panels/partials/list.html */
+.feedback-panel-list-items {
+    display: flex;
+    max-width: 35em;
+    flex-direction: column;
+    gap: 1em;
+}
+.feedback-panel-list-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 0.25rem;
+    width: 100%;
+    border-bottom: 1px solid var(--w-color-grey-200);
+    padding: 1em;
+}
+.feedback-panel-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1em;
+    width: 100%;
+}
+.feedback-panel-footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1em;
+    width: 100%;
+}
+.feedback-icon svg {
+    width: 2em;
+    height: 2em;
+    overflow: visible;
+    vertical-align: middle;
+}
+.feedback-text {
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+}
+.feedback-date {
+    font-size: 0.8rem;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    color: var(--w-color-grey-200);
+}
+.feedback-buttons {
+
+}
+.feedback-button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+.feedback-button-text {
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+.feedback-button svg {
+    width: 3.5em;
+    height: 3.5em;
+    overflow: visible;
+    transition: all 0.2s ease-in-out;
+}
+.feedback-button:hover svg {
+    transform: scale(1.1);
+}
+svg.icon-positive,
+.feedback-aggregate__item__positive svg,
+.feedback-button:not(.monotone) svg.happy {
+    color: rgb(42, 208, 158);
+}
+svg.icon-negative,
+.feedback-aggregate__item__negative svg,
+.feedback-button:not(.monotone) svg.sad {
+    color: rgb(253, 87, 101);
+}
+
+.feedback-row {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 1em;
+}
+
+@media screen and (max-width: 768px) {
+    .feedback-row {
+        flex-direction: column-reverse;
+    }
+    .feedback-panel-list-items {
+        max-width: unset;
+    }
+}
+
+.feedback-col {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.feedback-col.full {
+    width: 100%;
+}
+.feedback-col.flex {
+    flex: 1;
+}
+.feedback-col.center {
+    align-items: center;
+    justify-content: center;
+}
+
+/* panels/partials/aggregate.html */
+#feedback-wrapper {
+    overflow: hidden;
+}
+.feedback-aggregate__items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    width: 100%;
+    max-width: 35em;
+}
+.feedback-aggregate__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2em;
+    flex: 1;
+}
+.feedback-aggregate__item__icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 0.5em;
+}
+.feedback-aggregate__item__title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.feedback-aggregate__item__title h2 {
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+.feedback-aggregate__item__value {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.feedback-aggregate__item__negative,
+.feedback-aggregate__item__positive {
+    gap: 0.5em;
+}
+
+.feedback-aggregate__item__value h3 {
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+.feedback-aggregate__item__value svg {
+    width: 4em;
+    height: 4em;
+    overflow: visible;
+}
+
+.feedback-aggregate__item .feedback-text {
+    text-shadow: 0px 0px 20px var(--w-color-grey-200);
+    letter-spacing: 0.05em;
+}
+
+.feedback-aggregate__item .feedback-text.perfect {
+    color: #00c53b;
+}
+.feedback-aggregate__item .feedback-text.good {
+    color: #76b600;
+}
+.feedback-aggregate__item .feedback-text.ok {
+    color: #9da102;
+}
+.feedback-aggregate__item .feedback-text.neutral {
+    color: #bfc200;
+}
+.feedback-aggregate__item .feedback-text.not-good {
+    color: #c28400;
+}
+.feedback-aggregate__item .feedback-text.bad {
+    color: #c76a00;
+}
+.feedback-aggregate__item .feedback-text.horrible {
+    color: #c40000;
+}
+
+.feedback-admin-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1em;
+    width: 100%;
+}
+
+.feedback-filter {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 1em;
+
+}
+.feedback-filter-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+.feedback-filter-help {
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: var(--w-color-grey-200);
+    margin-bottom: 1em;
+}
+.feedback-filter-field {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.feedback-aggregate select,
+.feedback-aggregate input, 
+.feedback-aggregate textarea {
+    line-height: 2.2;
+    font-size: unset;
+    min-height: 2.225rem;
+    width: unset;
+    padding: 0 0.75rem;
+}
+.feedback-aggregate select {
+    background-position: calc(100% - 1.5rem) 0.925rem,calc(100% - 1.125rem) 0.925rem;
+    padding-inline-end: 2.225rem;
+}
+
+/* panels/partials/paginator.html */
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1em 0;
+}
+.pagination ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5em;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Tooltips */
+.feedback-tooltip {
+    position: relative;
+    display: inline-block;
+}
+.feedback-tooltip .feedback-tooltiptext {
+    visibility: hidden;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+.feedback-tooltip:hover .feedback-tooltiptext {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+.feedback-tooltip .feedback-tooltiptext {
+    width: 180px;
+    padding: 0.5em 1em;
+    top: 100%;
+    left: 50%;
+    /* margin-left: -90px; Use half of the width (120/2 = 60), to center the tooltip */
+    transform: translateX(-50%);
+  }

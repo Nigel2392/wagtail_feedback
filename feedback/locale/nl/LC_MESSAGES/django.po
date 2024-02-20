@@ -1,0 +1,362 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-30 10:55+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\application\feedback\filters.py:41
+msgid "Period"
+msgstr "Periode"
+
+#: .\application\feedback\filters.py:42
+msgid "The period to aggregate the feedback results."
+msgstr "De periode om de feedback resultaten te aggregeren."
+
+#: .\application\feedback\filters.py:46
+msgid "Day/Hour"
+msgstr "Dag/Uur"
+
+#: .\application\feedback\filters.py:47
+msgid "Date"
+msgstr "Datum"
+
+#: .\application\feedback\filters.py:48
+msgid "Month"
+msgstr "Maand"
+
+#: .\application\feedback\filters.py:49
+msgid "Year"
+msgstr "Jaar"
+
+#: .\application\feedback\filters.py:67
+msgid "Positivity Range"
+msgstr "Positiviteit Niveau"
+
+#: .\application\feedback\filters.py:68
+msgid "The range of positivity to filter the results."
+msgstr "Het niveau van positiviteit om de resultaten te filteren."
+
+#: .\application\feedback\filters.py:74
+msgid "Most Positive"
+msgstr "Meest Positief"
+
+#: .\application\feedback\filters.py:75
+msgid "Least Positive"
+msgstr "Minst Positief"
+
+#: .\application\feedback\filters.py:77
+msgid "Ordering"
+msgstr "Volgorde"
+
+#: .\application\feedback\filters.py:78
+msgid "None"
+msgstr "Geen"
+
+#: .\application\feedback\filters.py:79
+msgid "The ordering of the feedback instances."
+msgstr "De volgorde van de feedback instanties."
+
+#: .\application\feedback\filters.py:106
+msgid "Attitude"
+msgstr "Mening"
+
+#: .\application\feedback\filters.py:107 .\application\feedback\filters.py:120
+msgid "All"
+msgstr "Alles"
+
+#: .\application\feedback\filters.py:108
+msgid "The attitude of the feedback."
+msgstr "De mening van de feedback."
+
+#: .\application\feedback\filters.py:111 .\application\feedback\models.py:97
+#: .\application\feedback\models.py:170
+msgid "Positive"
+msgstr "Positief"
+
+#: .\application\feedback\filters.py:112 .\application\feedback\models.py:170
+msgid "Negative"
+msgstr "Negatief"
+
+#: .\application\feedback\filters.py:118
+msgid "Has Message"
+msgstr "Heeft Bericht"
+
+#: .\application\feedback\filters.py:119
+msgid "Whether the feedback has a message."
+msgstr "Of de feedback een bericht heeft."
+
+#: .\application\feedback\filters.py:123
+msgid "Yes"
+msgstr "Ja"
+
+#: .\application\feedback\filters.py:124
+msgid "No"
+msgstr "Nee"
+
+#: .\application\feedback\forms.py:22 .\application\feedback\models.py:103
+msgid "Message"
+msgstr "Bericht"
+
+#: .\application\feedback\forms.py:28
+msgid "What would you like to see improved?"
+msgstr "Wat zou u graag verbeterd zien?"
+
+#: .\application\feedback\forms.py:47
+msgid "You must provide a message."
+msgstr "U moet een bericht opgeven."
+
+#: .\application\feedback\mixins.py:55
+msgid "Feedback Title"
+msgstr "Feedback Titel"
+
+#: .\application\feedback\mixins.py:56
+msgid "The title of the feedback form."
+msgstr "De titel van het feedback formulier."
+
+#: .\application\feedback\mixins.py:62
+msgid "Feedback Thanks"
+msgstr "Feedback Bedankt"
+
+#: .\application\feedback\mixins.py:63
+msgid "The message shown after submitting feedback."
+msgstr "Het bericht dat wordt weergegeven na het verzenden van feedback."
+
+#: .\application\feedback\mixins.py:69
+msgid "Feedback Explainer"
+msgstr "Feedback Uitleg"
+
+#: .\application\feedback\mixins.py:70
+msgid ""
+"The message shown before submitting feedback, explaining what the feedback "
+"should be about."
+msgstr ""
+"Het bericht dat wordt weergegeven voordat feedback wordt verzonden, waarin "
+"wordt uitgelegd waar de feedback over moet gaan."
+
+#: .\application\feedback\mixins.py:76
+msgid "Feedback Positive Text"
+msgstr "Feedback Positieve Tekst"
+
+#: .\application\feedback\mixins.py:77
+msgid "The text shown for positive feedback tooltip."
+msgstr "De tekst die wordt weergegeven voor positieve feedback tooltip."
+
+#: .\application\feedback\mixins.py:83
+msgid "Feedback Negative Text"
+msgstr "Feedback Negatieve Tekst"
+
+#: .\application\feedback\mixins.py:84
+msgid "The text shown for negative feedback tooltip."
+msgstr "De tekst die wordt weergegeven voor negatieve feedback tooltip."
+
+#: .\application\feedback\mixins.py:90
+msgid "Message If Positive"
+msgstr "Bericht Wanneer Positief"
+
+#: .\application\feedback\mixins.py:91
+msgid "Allow asking for explanation if the feedback is positive."
+msgstr "Vragen om uitleg als de feedback positief is."
+
+#: .\application\feedback\models.py:90
+msgid "Content"
+msgstr "Inhoud"
+
+#: .\application\feedback\models.py:91
+msgid "Metadata"
+msgstr "Metadata"
+
+#: .\application\feedback\models.py:98
+msgid "Whether the feedback is positive or negative."
+msgstr "Of de feedback positief of negatief is."
+
+#: .\application\feedback\models.py:104
+msgid "The message of the feedback."
+msgstr "Het bericht van de feedback."
+
+#: .\application\feedback\models.py:112
+msgid "Page"
+msgstr "Pagina"
+
+#: .\application\feedback\models.py:113
+msgid "The page the feedback is for."
+msgstr "De pagina waar de feedback voor is."
+
+#: .\application\feedback\models.py:117
+msgid "Created At"
+msgstr "Gemaakt Op"
+
+#: .\application\feedback\models.py:118
+msgid "The time the feedback was created."
+msgstr "De tijd waarop de feedback is gemaakt."
+
+#: .\application\feedback\models.py:227
+msgid "IP Address"
+msgstr "IP Adres"
+
+#: .\application\feedback\models.py:228
+msgid "The IP address of the feedback."
+msgstr "Het IP adres van de feedback."
+
+#: .\application\feedback\models.py:238 .\application\feedback\models.py:239
+msgid "Feedback"
+msgstr "Feedback"
+
+#: .\application\feedback\templates\feedback\form.html:12
+msgid "Thanks for your feedback!"
+msgstr "Dank u voor uw feedback!"
+
+#: .\application\feedback\templates\feedback\form.html:13
+msgid "Help us improve by leaving a comment below"
+msgstr "Help ons verbeteren door hieronder een opmerking achter te laten"
+
+#: .\application\feedback\templates\feedback\form.html:44
+msgid "Submit"
+msgstr "Versturen"
+
+#: .\application\feedback\templates\feedback\happy-sad.html:6
+msgid "Was this page helpful?"
+msgstr "Was deze pagina nuttig?"
+
+#: .\application\feedback\templates\feedback\happy-sad.html:7
+msgid "This page was helpful."
+msgstr "Deze pagina was nuttig."
+
+#: .\application\feedback\templates\feedback\happy-sad.html:8
+msgid "This page was not helpful."
+msgstr "Deze pagina was niet nuttig."
+
+#: .\application\feedback\templates\feedback\panels\partials\aggregate.html:16
+#: .\application\feedback\templates\feedback\panels\partials\aggregate.html:55
+#, python-format
+msgid "Total amount of votes: %(total)s"
+msgstr "Totaal aantal stemmen: %(total)s"
+
+#: .\application\feedback\templates\feedback\panels\partials\aggregate.html:31
+#, python-format
+msgid "Amount of positive votes: %(positive_count)s"
+msgstr "Aantal positieve stemmen: %(positive_count)s"
+
+#: .\application\feedback\templates\feedback\panels\partials\aggregate.html:43
+#, python-format
+msgid "Amount of negative votes: %(negative_count)s"
+msgstr "Aantal negatieve stemmen: %(negative_count)s"
+
+#: .\application\feedback\templates\feedback\panels\partials\aggregate.html:57
+msgid "Everyone is happy."
+msgstr "Iedereen is blij."
+
+#: .\application\feedback\templates\feedback\panels\partials\aggregate.html:59
+msgid "A lot of people are happy."
+msgstr "Veel mensen zijn blij."
+
+#: .\application\feedback\templates\feedback\panels\partials\aggregate.html:61
+msgid "The majority is happy."
+msgstr "De meerderheid is blij."
+
+#: .\application\feedback\templates\feedback\panels\partials\aggregate.html:63
+msgid "People are split."
+msgstr "Mensen zijn verdeeld."
+
+#: .\application\feedback\templates\feedback\panels\partials\aggregate.html:65
+msgid "Most people are unhappy."
+msgstr "De meeste mensen zijn ongelukkig."
+
+#: .\application\feedback\templates\feedback\panels\partials\aggregate.html:67
+msgid "This is very unlikeable."
+msgstr "Dit is erg onaangenaam."
+
+#: .\application\feedback\templates\feedback\panels\partials\aggregate.html:69
+msgid "Nobody likes this."
+msgstr "Niemand vindt dit leuk."
+
+#: .\application\feedback\templates\feedback\panels\partials\delete.html:5
+msgid "Delete this feedback?"
+msgstr "Deze feedback verwijderen?"
+
+#: .\application\feedback\templates\feedback\panels\partials\delete.html:9
+msgid "Once you delete this object, there is no going back."
+msgstr "Als u dit object verwijdert, is er geen weg terug."
+
+#: .\application\feedback\templates\feedback\panels\partials\delete.html:17
+msgid "Yes, I'm sure"
+msgstr "Ja, ik weet het zeker"
+
+#: .\application\feedback\templates\feedback\panels\partials\delete.html:19
+msgid "Cancel"
+msgstr "Annuleren"
+
+#: .\application\feedback\templates\feedback\panels\partials\feedback-list-item.html:33
+msgid "Delete"
+msgstr "Verwijderen"
+
+#: .\application\feedback\templates\feedback\panels\partials\filters-form.html:31
+msgid "Filter..."
+msgstr "Filteren..."
+
+#: .\application\feedback\templates\feedback\panels\partials\wrapper.html:6
+msgid "Analytics"
+msgstr "Analyse"
+
+#: .\application\feedback\templates\feedback\panels\partials\wrapper.html:9
+msgid "List"
+msgstr "Lijst"
+
+#: .\application\feedback\templates\feedback\thanks.html:5
+msgid "Thanks for your feedback! We appreciate your message."
+msgstr "Bedankt voor uw feedback! We waarderen uw bericht."
+
+#: .\application\feedback\views\admin_api.py:44
+msgid "Creation Range"
+msgstr "Creatie Periode"
+
+#: .\application\feedback\views\admin_api.py:45
+msgid "The range of creation dates."
+msgstr "De periode van creatie data."
+
+#: .\application\feedback\views\admin_api.py:56
+#: .\application\feedback\views\admin_api.py:62
+#: .\application\feedback\views\admin_api.py:132
+#: .\application\feedback\views\admin_api.py:138
+#: .\application\feedback\views\admin_api.py:204
+#: .\application\feedback\views\admin_api.py:210
+msgid "You do not have permission to view feedback instances."
+msgstr "U heeft geen toestemming om feedback te bekijken."
+
+#: .\application\feedback\views\admin_api.py:225
+#: .\application\feedback\views\admin_api.py:234
+msgid "You do not have permission to delete feedback instances."
+msgstr "U heeft geen toestemming om feedback te verwijderen."
+
+#: .\application\feedback\views\admin_api.py:228
+msgid ""
+"You must use a POST, DELETE or GET request to delete feedback instances."
+msgstr ""
+"U moet een POST, DELETE of GET verzoek gebruiken om feedback te verwijderen."
+
+#: .\application\feedback\views\public.py:61
+#: .\application\feedback\views\public.py:151
+msgid "You have already submitted feedback for this page."
+msgstr "U heeft al feedback voor deze pagina verzonden."
+
+#: .\application\feedback\views\public.py:115
+msgid "Thank you for your feedback."
+msgstr "Bedankt voor uw feedback."
+
+#: .\application\feedback\views\public.py:134
+msgid "Feedback messages are not allowed on positive feedback."
+msgstr "Feedback berichten zijn niet toegestaan op positieve feedback."
+

@@ -1,0 +1,47 @@
+{% extends "./wrapper.html" %}
+
+{% load i18n %}
+
+{% block wrapped %}
+    {% if feedback %}
+        {% url "feedback:feedback_with_message" page.pk feedback.pk as feedback_url %}
+    {% else %}
+        {% url "feedback:feedback" page.pk as feedback_url %}
+    {% endif %}
+
+    {% translate "Thanks for your feedback!" as feedback_thanks %}
+    {% translate "Help us improve by leaving a comment below" as feedback_improve %}
+
+    <p>{{ page.get_feedback_thanks|default:feedback_thanks }}</p>
+    <h3>{{ page.get_feedback_explainer|default:feedback_improve }}</h3>
+    <form action="{{ feedback_url }}" method="POST" hx-post="{{ feedback_url }}" hx-swap="outerHTML" hx-target="#feedback-wrapper" class="feedback-message" hx-trigger="submit">
+        {% csrf_token %}
+        {% if form.errors or form.non_field_errors %}
+            <div class="form-field">
+                {% if form.non_field_errors %}
+                    {% for error in form.non_field_errors %}
+                        <p class="error">{{ error }}</p>
+                    {% endfor %}
+                {% endif %}
+                {% if form.errors %}
+                    {% for field in form %}
+                        {% for error in field.errors %}
+                            <p class="error">{{ error }}</p>
+                        {% endfor %}
+                    {% endfor %}
+                {% endif %}
+            </div>
+        {% endif %}
+        {% for field in form %}
+            <div class="form-field">
+                {{ field }}
+                {% for error in field.errors %}
+                    <p class="error">{{ error }}</p>
+                {% endfor %}
+            </div>
+        {% endfor %}
+        <button type="submit" class="feedback-button feedback-button-text wrapped bright">
+            {% translate "Submit" %}
+        </button>
+    </form>
+{% endblock %}

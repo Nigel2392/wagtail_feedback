@@ -1,0 +1,9 @@
+{% extends WRAPPER|default:"./wrapper.html" %}
+
+{% load i18n %}
+
+{% block wrapped %}
+    <div class="feedback-error">
+        <h3>{{ error }}</h3>
+    </div>
+{% endblock %}

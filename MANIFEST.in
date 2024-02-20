@@ -1,0 +1,7 @@
+include LICENSE
+include README.md
+recursive-include wagtail_feedback/static *
+recursive-include wagtail_feedback/templates *
+recursive-include wagtail_feedback/locale *
+recursive-include wagtail_feedback/migrations *
+recursive-include wagtail_feedback/templatetags *

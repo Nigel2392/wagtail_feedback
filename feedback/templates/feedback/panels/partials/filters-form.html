@@ -1,0 +1,37 @@
+{% load i18n static %}
+<form class="feedback-filter-form" method="get" action="{{url}}" hx-get="{{url}}" hx-target="#{{ panel_id }}" hx-swap="outerHTML" hx-trigger="submit" autocomplete="off">
+    {% for filter in filters %}
+        {% if filter.form.non_field_errors %}
+            {% for error in filter.form.non_field_errors %}
+                <p class="feedback-error">{{ error }}</p>
+            {% endfor %}
+        {% endif %}
+        {% for field in filter.form %}
+            {% if field.errors %}
+                {% for error in field.errors %}
+                    <p class="feedback-error">{{ error }}</p>
+                {% endfor %}
+            {% endif %}
+            {% if field.is_hidden %}
+                {{ field }}
+            {% else %}
+                <div class="feedback-filter">
+                    <p class="feedback-filter-label">{{ field.label_tag }}</p>
+                    <div class="feedback-filter-field">
+                        {{ field }}
+                    </div>
+                    {% if field.help_text %}
+                        <p class="feedback-filter-help">{{ field.help_text }}</p>
+                    {% endif %}
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+    <button class="feedback-filter-button button" type="submit">
+        {% translate "Filter..." %}
+    </button>
+</form>
+<script>
+initDateTimeChooser("id_created_at_0", {"dayOfWeekStart": 1, "format": "d-m-Y", "timepicker": false});
+initDateTimeChooser("id_created_at_1", {"dayOfWeekStart": 1, "format": "d-m-Y", "timepicker": false});
+</script>

@@ -1,0 +1,26 @@
+{% extends "./wrapper.html" %}
+
+{% block wrapped %}
+
+    <div class="feedback-panel-list">
+        <div class="feedback-row">
+            <div class="feedback-col full">
+                <section class="pagination">
+    
+                    {% include "./paginator.html" with paginator=paginator page_obj=page_obj %}
+                
+                </section>
+                <section class="feedback-panel-list-items">
+                    {% for feedback in page_obj %}
+                        {% include "./feedback-list-item.html" %}
+                    {% endfor %}
+                </section>
+            
+            </div>
+            <div class="feedback-col full">
+                {% url "page_feedback_api" page.pk as lists_url %}
+                {% include "./filters-form.html" with url=lists_url %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
