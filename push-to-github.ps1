@@ -93,13 +93,12 @@ function GITHUB_NextVersion {
     if ($version) {
         $newVersion = _NextVersionString -Version $version
         Write-Host "Next version (git): $newVersion"
+        return $newVersion
     } else {
         $newVersion = InitRepo -ConfigFile $ConfigFile
+        return $newVersion
     }
 
-    Write-Host "Next version (git): $newVersion"
-
-    return $newVersion
 }
 
 Function GITHUB_UpdateVersion {
