@@ -13,7 +13,7 @@ Function GITHUB_Upload {
     )
 
     git add .
-    $gitVersion = "v${newVersion}"
+    $gitVersion = "v${Version}"
     git tag $gitVersion
     git commit -m $CommitMessage
     git push -u origin main --tags
