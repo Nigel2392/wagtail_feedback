@@ -69,10 +69,10 @@ function InitRepo {
         [string]$ConfigFile = ".\setup.cfg"
     )
     Write-Host "Initialising repository..."
-    git init
-    git add .
-    git branch -M main
-    git remote set-url origin "ssh@github.com:nigel2392/${ProjectName}"
+    git init | Out-Host
+    git add . | Out-Host
+    git branch -M main | Out-Host
+    git remote set-url origin "ssh@github.com:nigel2392/${ProjectName}" | Out-Host
     $version = PYPI_NextVersion -ConfigFile $ConfigFile
     Write-Host "Initial version: $version"
     return $version
