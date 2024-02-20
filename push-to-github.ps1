@@ -1,8 +1,5 @@
 $ProjectName = "wagtail_feedback"
 
-param (
-    [string]$CommitMessage = "Update to package"
-)
 
 function IsNumeric ($Value) {
     return $Value -match "^[\d\.]+$"
@@ -75,9 +72,7 @@ function InitRepo {
     git add .
     git branch -M main
     git remote set-url origin "ssh@github.com:nigel2392/${ProjectName}.git"
-    $newVersion = PYPI_NextVersion -ConfigFile $ConfigFile
-    Write-Host "Next version (pypi): $newVersion"
-    return $newVersion
+    return PYPI_NextVersion -ConfigFile $ConfigFile
 }
 
 function GITHUB_NextVersion {
@@ -88,13 +83,18 @@ function GITHUB_NextVersion {
 
 
     # Extract the version, increment it, and prepare the updated version string
-    $version = "$(git tag -l --format='VERSION=%(refname:short)' | Sort-Object -Descending | Select-Object -First 1)" -split "=v", 2 | ForEach-Object { $_.Trim() } | Select-Object -Last 1
+    try {
+        $version = "$(git tag -l --format='VERSION=%(refname:short)' | Sort-Object -Descending | Select-Object -First 1)" -split "=v", 2 | ForEach-Object { $_.Trim() } | Select-Object -Last 1
 
-    if ($version) {
-        $newVersion = _NextVersionString -Version $version
-        Write-Host "Next version (git): $newVersion"
-        return $newVersion
-    } else {
+        if ($version) {
+            $newVersion = _NextVersionString -Version $version
+            Write-Host "Next version (git): $newVersion"
+            return $newVersion
+        } else {
+            $newVersion = InitRepo -ConfigFile $ConfigFile
+            return $newVersion
+        }
+    } catch {
         $newVersion = InitRepo -ConfigFile $ConfigFile
         return $newVersion
     }
@@ -164,11 +164,11 @@ Function PYPI_Upload {
 }
 
 
-$version = GITHUB_UpdateVersion                            # Increment the package version  (setup.cfg)
-GITHUB_Upload -Version $version                            # Upload the package             (twine upload dist/<LATEST>)
-PYPI_Build                                                 # Build the package              (python setup.py sdist)
-PYPI_Check -Version $version -CommitMessage $CommitMessage # Check the package              (twine check dist/<LATEST>)
-PYPI_Upload -Version $version                              # Upload the package             (twine upload dist/<LATEST>)
+$version = GITHUB_UpdateVersion # Increment the package version  (setup.cfg)
+GITHUB_Upload -Version $version # Upload the package             (twine upload dist/<LATEST>)
+PYPI_Build                      # Build the package              (python setup.py sdist)
+PYPI_Check -Version $version    # Check the package              (twine check dist/<LATEST>)
+PYPI_Upload -Version $version   # Upload the package             (twine upload dist/<LATEST>)
 
 
 
