@@ -1,7 +1,7 @@
 include LICENSE
 include README.md
-recursive-include wagtail_feedback/static *
-recursive-include wagtail_feedback/templates *
-recursive-include wagtail_feedback/locale *
-recursive-include wagtail_feedback/migrations *
-recursive-include wagtail_feedback/templatetags *
+recursive-include feedback/static *
+recursive-include feedback/templates *
+recursive-include feedback/locale *
+recursive-include feedback/migrations *
+recursive-include feedback/templatetags *

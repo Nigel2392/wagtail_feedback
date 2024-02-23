@@ -39,7 +39,7 @@ def error(request, message, status=200, key = "error", to: str = None, *args, **
 
 def is_htmx_request(request):
     if hasattr(request, "is_htmx"):
-        return request.is_htmx
+        return bool(request.is_htmx)
     
     if hasattr(request, "htmx"):
         return bool(request.htmx)
