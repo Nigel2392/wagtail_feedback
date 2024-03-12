@@ -20,7 +20,7 @@
     </div>
     <div class="feedback-panel-footer">
         <div class="feedback-date">
-            {{ feedback.ip_address }} | {{ feedback.created_at|date }}
+            {{ feedback.ip_address }} | {{ feedback.created_at|date:"SHORT_DATE_FORMAT" }}
         </div>
         <div class="feedback-delete">
             {% url "feedback_api_delete" feedback.id as delete_url%}

@@ -1,4 +1,5 @@
 from typing import Any, Callable, TYPE_CHECKING, Tuple
+from django import forms
 from django.http.response import HttpResponse as HttpResponse
 from django.shortcuts import (
     get_object_or_404,
@@ -18,6 +19,8 @@ from django.views.generic import (
     TemplateView,
 )
 import django_filters as filters
+import django_filters.widgets as filter_widgets
+import django_filters.fields as filter_fields
 from wagtail.models import (
     Page,
 )
@@ -46,8 +49,24 @@ Feedback = get_feedback_model()
 PAGE_PARAM = "page"
 
 
+class FeedbackDateRangeField(filter_fields.RangeField):
+    widget = filter_widgets.DateRangeWidget
+
+    def __init__(self, *args, **kwargs):
+        fields = (forms.DateField(
+            input_formats=["%d-%m-%Y", "%Y-%m-%d", "%d/%m/%Y", "%Y/%m/%d"],
+        ), forms.DateField(
+            input_formats=["%d-%m-%Y", "%Y-%m-%d", "%d/%m/%Y", "%Y/%m/%d"],
+        ))
+        super().__init__(fields, *args, **kwargs)
+
+
+class FeedbackDateFromToRangeFilter(filters.DateFromToRangeFilter):
+    field_class = FeedbackDateRangeField
+
+
 class FeedbackDateRangeFilterSet(filters.FilterSet):
-    created_at = filters.DateFromToRangeFilter(
+    created_at = FeedbackDateFromToRangeFilter(
         field_name="created_at",
         label=_("Creation Range"),
         help_text=_("The range of creation dates."),
