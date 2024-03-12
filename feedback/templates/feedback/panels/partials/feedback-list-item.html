@@ -1,4 +1,4 @@
-{% load i18n utils_tags %}
+{% load i18n %}
 <div class="feedback-panel-list-item" data-feedback-id="{{ feedback.pk }}">
     <div class="feedback-panel-header">
         <div class="feedback-icon">
@@ -20,7 +20,7 @@
     </div>
     <div class="feedback-panel-footer">
         <div class="feedback-date">
-            {{ feedback.ip_address }} | {{ feedback.created_at|format_date }}
+            {{ feedback.ip_address }} | {{ feedback.created_at|date }}
         </div>
         <div class="feedback-delete">
             {% url "feedback_api_delete" feedback.id as delete_url%}
