@@ -34,10 +34,13 @@ class FeedbackPanel(Panel):
         def is_shown(self):
             shown = super().is_shown() and self.request.user.has_perm("feedback.view_feedback")
             if not shown:
-                return self.panel.visible_by_default
+                return False
             
             if self.instance is None:
-                return self.panel.visible_by_default
+                return False
+            
+            if not self.instance.pk:
+                return False
             
             return Feedback.objects.filter(page=self.instance).exists()
 
