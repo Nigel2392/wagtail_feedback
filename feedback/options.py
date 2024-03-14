@@ -6,7 +6,7 @@ FEEDBACK_MODEL_NAME = getattr(settings, "FEEDBACK_MODEL_NAME", "feedback.Feedbac
 FEEDBACK_FORM_CLASS = getattr(settings, "FEEDBACK_FORM_CLASS", "feedback.forms.FeedbackForm")
 FEEDBACK_FILTER_CLASS = getattr(settings, "FEEDBACK_FILTER_CLASS", "feedback.filters.AbstractFeedbackFilter")
 FEEDBACK_BACKEND = getattr(settings, "FEEDBACK_BACKEND", {
-    "CLASS": "feedback.backends.IPBasedFeedbackend",
+    "CLASS": "feedback.backends.SessionBasedFeedbackend",
     "OPTIONS": {
         # ...
     }

@@ -27,6 +27,15 @@ class IPBasedFeedbackend(Feedbackend):
             page=page,
         )
 
+        if exists:
+            feedback_qs = feedback_qs.filter(
+                message__isnull=False,
+            )
+        else:
+            feedback_qs = feedback_qs.filter(
+                message__isnull=True,
+            )
+
         return feedback_qs.exists()
 
     

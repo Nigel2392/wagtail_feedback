@@ -1,3 +1,10 @@
+param (
+    [string]$CommitMessage = "Update to package",
+    [bool]$Tag = $false
+)
+
+
+
 $ProjectName = "wagtail_feedback"
 
 
@@ -7,15 +14,20 @@ function IsNumeric ($Value) {
 
 Function GITHUB_Upload {
     param (
-        [string]$Version,
-        [string]$CommitMessage = "Update to package"
+        [parameter(Mandatory=$false)]
+        [string]$Version
     )
 
     git add .
-    $gitVersion = "v${Version}"
-    git tag $gitVersion
-    git commit -m $CommitMessage
-    git push -u origin main --tags
+    if ($Tag) {
+        $gitVersion = "v${Version}"
+        git tag $gitVersion
+        git commit -m $CommitMessage
+        git push -u origin main --tags
+    } else {
+        git commit -m $CommitMessage
+        git push -u origin main
+    }
 }
 
 Function _NextVersionString {

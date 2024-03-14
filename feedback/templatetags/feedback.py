@@ -88,23 +88,29 @@ def do_format_date(year = None, month = None, day = None, hour = None, minute = 
     if not absolute:
         absolute = timezone.now() 
     
-    if year is None:
+    if not year and year is not 0:
         year = absolute.year
 
-    if month is None:
+    if not month and month is not 0:
         month = absolute.month
 
-    if day is None:
+    if not day and day is not 0:
         day = absolute.day
 
-    if hour is None:
+    if not hour and hour is not 0:
         hour = getattr(absolute, "hour", 0)
 
-    if minute is None:
+    if not minute and minute is not 0:
         minute = getattr(absolute, "minute", 0)
 
-    if second is None:
+    if not second and second is not 0:
         second = getattr(absolute, "second", 0)
+
+    try:
+        year, month, day, hour, minute, second =\
+            map(int, (year, month, day, hour, minute, second))
+    except ValueError:
+        return date_filter(absolute, "j F Y H:i")
 
     match period:
         case "hour":
