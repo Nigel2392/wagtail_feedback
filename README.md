@@ -65,11 +65,11 @@ Quick start
 
 ### **Backends for validating feedback before and after submit**
 
-`FEEDBACK_BACKEND` *default:* 
+`FEEDBACK_BACKEND` *default:*
 
 ```python
 FEEDBACK_BACKEND = getattr(settings, "FEEDBACK_BACKEND", {
-    "CLASS": "feedback.backends.IPBasedFeedbackend",
+    "CLASS": "feedback.backends.SessionBasedFeedbackend",
     "OPTIONS": {
     	# ... Options passed to class
     }
