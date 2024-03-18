@@ -3,6 +3,10 @@ wagtail_feedback
 
 A simple wagtail application for letting users give feedback on your wagtail pages - provides easily readable and accessible aggregates in the page admin via `FeedbackPanel`
 
+Note:
+
+* Your `page.get_context` method must implement *args and **kwargs.
+
 Quick start
 -----------
 
@@ -82,6 +86,28 @@ Other backends include:
 * `feedback.backends.SessionBasedFeedbackend`
 * `feedback.backends.PageBasedFeedbackend`
 * `feedback.backends.Feedbackend` *(base implementation)*
+
+
+## **Custom page methods for specifying messages/functionality**
+
+Specifies if the user is allowed to leave a message on positive feedback for this page.
+
+`def allow_feedback_message_on_positive(self):`
+
+Specifies the title shown above the feedback form.
+`def get_feedback_title(self):`
+
+How you would like to thank your user after submitting the feedback
+`def get_feedback_thanks(self):`
+
+A simple short description explaining why you are asking for feedback
+`def get_feedback_explainer(self):`
+
+Text shown when the user hovers over the positive icon.
+`def get_feedback_positive_text(self):`
+
+Text shown when the user hovers over the negative icon.
+`def get_feedback_negative_text(self):`
 
 ## **Django proxy settings to get IP-adress**
 
