@@ -87,27 +87,31 @@ Other backends include:
 * `feedback.backends.PageBasedFeedbackend`
 * `feedback.backends.Feedbackend` *(base implementation)*
 
-
 ## **Custom page methods for specifying messages/functionality**
 
 Specifies if the user is allowed to leave a message on positive feedback for this page.
 
-`def allow_feedback_message_on_positive(self):`
+`def allow_feedback_message_on_positive(self) -> bool:`
 
 Specifies the title shown above the feedback form.
-`def get_feedback_title(self):`
 
-How you would like to thank your user after submitting the feedback
-`def get_feedback_thanks(self):`
+`def get_feedback_title(self) -> str:`
 
-A simple short description explaining why you are asking for feedback
-`def get_feedback_explainer(self):`
+How you would like to thank your user after submitting the feedback.
 
-Text shown when the user hovers over the positive icon.
-`def get_feedback_positive_text(self):`
+`def get_feedback_thanks(self) -> str:`
 
-Text shown when the user hovers over the negative icon.
-`def get_feedback_negative_text(self):`
+A simple short description explaining why you are asking for feedback.
+
+`def get_feedback_explainer(self) -> str:`
+
+Text shown when the user hovers over the positive icon.  
+
+`def get_feedback_positive_text(self) -> str:`
+
+Text shown when the user hovers over the negative icon.  
+
+`def get_feedback_negative_text(self) -> str:`
 
 ## **Django proxy settings to get IP-adress**
 
