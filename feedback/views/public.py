@@ -85,7 +85,7 @@ def feedback(request, *args, **kwargs):
         # If the feedback is positive and it is allowed, or if it is negative
         # then show the message form.
         if hasattr(page, "allow_feedback_message_on_positive")\
-            and not page.allow_feedback_message_on_positive()\
+            and page.allow_feedback_message_on_positive()\
             and form.instance.positive\
             or not form.instance.positive:
 
