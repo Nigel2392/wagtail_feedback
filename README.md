@@ -120,3 +120,7 @@ Text shown when the user hovers over the negative icon.
 Used for setting the appropriate IP-adress on the
 
 feedback model / when using the backend.
+
+# Contributors
+
+* [jellelangen](https://github.com/jellelangen)
